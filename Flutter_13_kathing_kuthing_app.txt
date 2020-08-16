@@ -1,0 +1,95 @@
+Flutter stateless widget code : 
+
+
+import 'package:flutter/material.dart';
+
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+ 
+  var indx=0;
+
+  var imageArray=[
+'https://www.gallery.andhimazhai.com/albums/userpics/10001/normal_Imsai%20arasan%20pulikesi%201.jpg',
+'https://i.ytimg.com/vi/wOBv1-2DkaM/maxresdefault.jpg'];
+
+  @override
+  Widget build(BuildContext context) {
+       return MaterialApp(home:
+      
+      Scaffold(body: Stack(children: <Widget>[
+       
+         Image.network(imageArray[indx]
+                      ,height:350),
+         Positioned(child:FlatButton(child:Text('Use me'),onPressed:(){    
+           
+    
+            indx=1; 
+        }
+               
+         ),left:80,top:250) ,
+     Text('vannakam')
+
+      ],)  ,)
+        
+      ,);
+
+
+}
+}
+
+
+
+
+
+Flutter Stateful widget code:
+
+
+import 'package:flutter/material.dart';
+
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  var indx=0;
+
+  var imageArray=[
+'https://www.gallery.andhimazhai.com/albums/userpics/10001/normal_Imsai%20arasan%20pulikesi%201.jpg',
+'https://i.ytimg.com/vi/wOBv1-2DkaM/maxresdefault.jpg'];
+
+  @override
+  Widget build(BuildContext context) {
+       return MaterialApp(home:
+      
+      Scaffold(body: Stack(children: <Widget>[
+       
+         Image.network(imageArray[indx]
+                      ,height:350),
+         Positioned(child:FlatButton(child:Text('Use me'),onPressed:(){    
+           
+      setState(   ()
+        {
+            indx=1; 
+        }
+        );
+         
+         }),left:80,top:250) ,
+         indx==1?Text('Poda panni'):Text('vannakam')
+
+      ],)  ,)
+        
+      ,);
+
+
+}
+}
